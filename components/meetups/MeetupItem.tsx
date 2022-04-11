@@ -1,13 +1,15 @@
-import { useRouter } from 'next/router';
-import Card from '../ui/Card';
-import classes from './MeetupItem.module.css';
+import { useRouter } from "next/router";
+import Card from "../ui/Card";
+import classes from "./MeetupItem.module.css";
 
-function MeetupItem(props) {
+const MeetupItem = (props: {
+  id: string;
+  image: string;
+  title: string;
+  address: string;
+}) => {
   const router = useRouter();
-
-  function showDetailsHandler() {
-    router.push('/' + props.id);
-  }
+  const showDetailsHandler = () => router.push("/" + props.id);
 
   return (
     <li className={classes.item}>
@@ -25,6 +27,6 @@ function MeetupItem(props) {
       </Card>
     </li>
   );
-}
+};
 
 export default MeetupItem;
